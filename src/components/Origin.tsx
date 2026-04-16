@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { inViewOnce } from "@/lib/motion-viewport";
 import arteMarca from "@/assets/arte-marca.png";
 
 const tags = [
@@ -18,7 +19,7 @@ export function Origin() {
             className="flex-1"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={inViewOnce}
             transition={{ duration: 0.7 }}
           >
             <div className="relative">
@@ -26,6 +27,11 @@ export function Origin() {
               <img
                 src={arteMarca}
                 alt="Mel Duas Abelhas - Mel Puro 100% Natural, Abelha Italiana"
+                width={800}
+                height={500}
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
                 className="relative mx-auto max-h-[500px] w-auto rounded-2xl object-contain drop-shadow-2xl"
               />
             </div>
@@ -35,25 +41,25 @@ export function Origin() {
             className="flex-1 text-center lg:text-left"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={inViewOnce}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             <span className="mb-4 inline-block text-xs font-bold uppercase tracking-[0.2em] text-honey-dark">
               Nossa Origem
             </span>
             <h2 className="font-heading text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-5xl">
-              Do sertão baiano{" "}
-              <span className="text-gradient-honey">para a sua mesa</span>{" "}
-              em Salvador
+              Do sertão baiano <span className="text-gradient-honey">para a sua mesa</span> em
+              Salvador
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Em Riachão do Jacuípe, no coração do interior da Bahia, nossa família cuida das abelhas italianas
-              com respeito, carinho e dedicação. Cada gota de mel carrega a força do sertão, o cuidado artesanal
-              e a tradição de uma produção que passa de geração em geração.
+              Em Riachão do Jacuípe, no coração do interior da Bahia, nossa família cuida das
+              abelhas italianas com respeito, carinho e dedicação. Cada gota de mel carrega a força
+              do sertão, o cuidado artesanal e a tradição de uma produção que passa de geração em
+              geração.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Não somos uma marca de gôndola. Somos uma família que produz mel de verdade —
-              e leva até a sua porta em Salvador e Região Metropolitana.
+              Não somos uma marca de gôndola. Somos uma família que produz mel de verdade — e leva
+              até a sua porta em Salvador e Região Metropolitana.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">

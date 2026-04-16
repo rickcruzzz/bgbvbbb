@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { inViewOnce } from "@/lib/motion-viewport";
 import { MessageCircle, MapPin, CreditCard } from "lucide-react";
 import { WHATSAPP_URL } from "./WhatsAppButton";
 
@@ -32,15 +33,14 @@ export function HowToBuy() {
           className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={inViewOnce}
           transition={{ duration: 0.5 }}
         >
           <span className="mb-4 inline-block text-xs font-bold uppercase tracking-[0.2em] text-honey-dark">
             Simples e rápido
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
-            Como comprar{" "}
-            <span className="text-gradient-honey">seu mel</span>
+            Como comprar <span className="text-gradient-honey">seu mel</span>
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
             Atendimento direto em Salvador e Região Metropolitana. Sem burocracia.
@@ -54,7 +54,7 @@ export function HowToBuy() {
               className="relative text-center"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={inViewOnce}
               transition={{ duration: 0.5, delay: i * 0.12 }}
             >
               {/* Connector line (desktop) */}
@@ -65,9 +65,13 @@ export function HowToBuy() {
               <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-3xl border border-honey/15 bg-card shadow-card-premium">
                 <s.icon className="h-8 w-8 text-honey-dark" />
               </div>
-              <span className="mb-2 block font-heading text-3xl font-bold text-honey/30">{s.step}</span>
+              <span className="mb-2 block font-heading text-3xl font-bold text-honey/30">
+                {s.step}
+              </span>
               <h3 className="font-heading text-lg font-bold text-foreground">{s.title}</h3>
-              <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
+              <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">
+                {s.desc}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -76,7 +80,7 @@ export function HowToBuy() {
           className="mt-14 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={inViewOnce}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <a

@@ -1,6 +1,10 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { MotionConfig } from "framer-motion";
 
 import appCss from "../styles.css?url";
+
+const GOOGLE_FONTS_STYLESHEET =
+  "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap";
 
 function NotFoundComponent() {
   return (
@@ -30,18 +34,41 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Mel Duas Abelhas — Mel Puro 100% Natural em Salvador" },
-      { name: "description", content: "Mel puro 100% natural de abelha italiana, direto do produtor. Entregas em Salvador e RMS." },
+      {
+        name: "description",
+        content:
+          "Mel puro 100% natural de abelha italiana, direto do produtor. Entregas em Salvador e RMS.",
+      },
       { name: "author", content: "Mel Duas Abelhas" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:title", content: "Mel Duas Abelhas — Mel Puro 100% Natural em Salvador" },
       { name: "twitter:title", content: "Mel Duas Abelhas — Mel Puro 100% Natural em Salvador" },
-      { property: "og:description", content: "Mel puro 100% natural de abelha italiana, direto do produtor. Entregas em Salvador e RMS." },
-      { name: "twitter:description", content: "Mel puro 100% natural de abelha italiana, direto do produtor. Entregas em Salvador e RMS." },
+      {
+        property: "og:description",
+        content:
+          "Mel puro 100% natural de abelha italiana, direto do produtor. Entregas em Salvador e RMS.",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Mel puro 100% natural de abelha italiana, direto do produtor. Entregas em Salvador e RMS.",
+      },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/nh6wfDH8cxOwmuF9c4MR3imh5g82/social-images/social-1776353229106-WhatsApp_Image_2026-04-16_at_12.27.00.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/nh6wfDH8cxOwmuF9c4MR3imh5g82/social-images/social-1776353229106-WhatsApp_Image_2026-04-16_at_12.27.00.webp" },
+      {
+        property: "og:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/nh6wfDH8cxOwmuF9c4MR3imh5g82/social-images/social-1776353229106-WhatsApp_Image_2026-04-16_at_12.27.00.webp",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://storage.googleapis.com/gpt-engineer-file-uploads/nh6wfDH8cxOwmuF9c4MR3imh5g82/social-images/social-1776353229106-WhatsApp_Image_2026-04-16_at_12.27.00.webp",
+      },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: GOOGLE_FONTS_STYLESHEET },
       {
         rel: "stylesheet",
         href: appCss,
@@ -60,7 +87,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        {children}
+        <MotionConfig reducedMotion="user">{children}</MotionConfig>
         <Scripts />
       </body>
     </html>

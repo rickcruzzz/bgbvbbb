@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { inViewOnce } from "@/lib/motion-viewport";
 import img1 from "@/assets/produto-garrafa.png";
 import img2 from "@/assets/produto-trio.png";
 import img3 from "@/assets/produto-lote1.png";
@@ -24,15 +25,14 @@ export function Gallery() {
           className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={inViewOnce}
           transition={{ duration: 0.5 }}
         >
           <span className="mb-4 inline-block text-xs font-bold uppercase tracking-[0.2em] text-honey-gold">
             Produto Real
           </span>
           <h2 className="font-heading text-3xl font-bold text-white md:text-4xl lg:text-5xl">
-            Conheça de perto o{" "}
-            <span className="text-gradient-honey">nosso mel</span>
+            Conheça de perto o <span className="text-gradient-honey">nosso mel</span>
           </h2>
         </motion.div>
 
@@ -43,15 +43,19 @@ export function Gallery() {
               className={`group overflow-hidden rounded-2xl border border-white/5 ${img.span}`}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={inViewOnce}
               transition={{ duration: 0.4, delay: i * 0.07 }}
             >
               <div className="relative h-full overflow-hidden bg-warm-brown/30">
                 <img
                   src={img.src}
                   alt={img.alt}
+                  width={800}
+                  height={600}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
+                  decoding="async"
+                  fetchPriority="low"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-warm-brown-deep/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               </div>

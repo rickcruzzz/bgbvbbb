@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { inViewOnce } from "@/lib/motion-viewport";
 import { ShieldCheck, Leaf, Heart, Truck, Award, MapPin } from "lucide-react";
 
 const items = [
@@ -18,7 +19,7 @@ export function TrustBar() {
           className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={inViewOnce}
           transition={{ duration: 0.6 }}
         >
           {items.map((item, i) => (
@@ -27,13 +28,15 @@ export function TrustBar() {
               className="flex flex-col items-center gap-2.5 rounded-xl border border-honey/10 bg-warm-cream/50 px-3 py-4 text-center"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={inViewOnce}
               transition={{ duration: 0.3, delay: i * 0.06 }}
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-honey/10">
                 <item.icon className="h-5 w-5 text-honey-dark" />
               </div>
-              <span className="text-xs font-semibold leading-tight text-warm-brown">{item.text}</span>
+              <span className="text-xs font-semibold leading-tight text-warm-brown">
+                {item.text}
+              </span>
             </motion.div>
           ))}
         </motion.div>

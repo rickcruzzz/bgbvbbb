@@ -28,7 +28,9 @@ export function Footer() {
         </div>
         <div className="mt-10 border-t border-white/5 pt-8 text-center text-xs text-white/30">
           <p>© {new Date().getFullYear()} Mel Duas Abelhas. Todos os direitos reservados.</p>
-          <p className="mt-1 font-heading italic text-honey-gold/40">"Doce como o amor de família"</p>
+          <p className="mt-1 font-heading italic text-honey-gold/40">
+            "Doce como o amor de família"
+          </p>
         </div>
       </div>
     </footer>

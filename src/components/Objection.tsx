@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { inViewOnce } from "@/lib/motion-viewport";
 import artePureza from "@/assets/arte-pureza.png";
 import { WHATSAPP_URL } from "./WhatsAppButton";
 import { CheckCircle } from "lucide-react";
@@ -20,7 +21,7 @@ export function Objection() {
             className="flex-1"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={inViewOnce}
             transition={{ duration: 0.7 }}
           >
             <div className="relative">
@@ -28,6 +29,11 @@ export function Objection() {
               <img
                 src={artePureza}
                 alt="Você sabe se o mel que consome é puro?"
+                width={800}
+                height={500}
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
                 className="relative mx-auto max-h-[500px] w-auto rounded-2xl object-contain"
               />
             </div>
@@ -37,7 +43,7 @@ export function Objection() {
             className="flex-1 text-center lg:text-left"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={inViewOnce}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             <span className="mb-4 inline-block text-xs font-bold uppercase tracking-[0.2em] text-honey-gold">
@@ -48,8 +54,9 @@ export function Objection() {
               <span className="text-gradient-honey">Aqui é diferente.</span>
             </h2>
             <p className="mt-6 text-base leading-relaxed text-white/60 md:text-lg">
-              A maioria dos méis industrializados contém misturas como xarope de milho, glucose ou açúcar invertido.
-              O consumidor quer confiança e procedência — e é exatamente isso que o Mel Duas Abelhas entrega.
+              A maioria dos méis industrializados contém misturas como xarope de milho, glucose ou
+              açúcar invertido. O consumidor quer confiança e procedência — e é exatamente isso que
+              o Mel Duas Abelhas entrega.
             </p>
 
             <div className="mt-8 space-y-4">

@@ -1,4 +1,5 @@
-const WHATSAPP_URL = "https://wa.me/5571988084005?text=Oi%2C+quero+comprar+Mel+Duas+Abelhas.+Vi+no+site+e+gostaria+de+mais+informações+sobre+valores+e+entrega+em+Salvador%2FRMS.";
+const WHATSAPP_URL =
+  "https://wa.me/5571988084005?text=Oi%2C+quero+comprar+Mel+Duas+Abelhas.+Vi+no+site+e+gostaria+de+mais+informações+sobre+valores+e+entrega+em+Salvador%2FRMS.";
 
 export function WhatsAppButton() {
   return (
@@ -9,12 +10,7 @@ export function WhatsAppButton() {
       aria-label="Fale conosco pelo WhatsApp"
       className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_8px_25px_-4px_rgba(37,211,102,0.5)] transition-all duration-300 hover:scale-110 hover:shadow-[0_12px_35px_-4px_rgba(37,211,102,0.6)] active:scale-95 md:h-16 md:w-16"
     >
-      <svg
-        viewBox="0 0 32 32"
-        aria-hidden="true"
-        className="h-7 w-7 md:h-8 md:w-8"
-        fill="none"
-      >
+      <svg viewBox="0 0 32 32" aria-hidden="true" className="h-7 w-7 md:h-8 md:w-8" fill="none">
         <path
           d="M16 4.25c-6.15 0-11.13 4.81-11.13 10.74 0 2.25.72 4.33 1.94 6.05L5.62 26l5.25-1.14a11.37 11.37 0 0 0 5.13 1.22c6.15 0 11.13-4.81 11.13-10.74S22.15 4.25 16 4.25Z"
           stroke="currentColor"

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { inViewOnce } from "@/lib/motion-viewport";
 import arteBeneficios from "@/assets/arte-beneficios.png";
 
 export function About() {
@@ -11,7 +12,7 @@ export function About() {
             className="flex-1"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={inViewOnce}
             transition={{ duration: 0.7 }}
           >
             <div className="relative">
@@ -19,6 +20,11 @@ export function About() {
               <img
                 src={arteBeneficios}
                 alt="Produto direto do produtor, 100% natural, qualidade garantida"
+                width={800}
+                height={500}
+                loading="lazy"
+                decoding="async"
+                fetchPriority="low"
                 className="relative mx-auto max-h-[500px] w-auto rounded-2xl object-contain drop-shadow-2xl"
               />
             </div>
@@ -28,25 +34,24 @@ export function About() {
             className="flex-1 text-center lg:text-left"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={inViewOnce}
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             <span className="mb-4 inline-block text-xs font-bold uppercase tracking-[0.2em] text-honey-dark">
               Sobre Nós
             </span>
             <h2 className="font-heading text-3xl font-bold leading-tight text-foreground md:text-4xl lg:text-5xl">
-              Doce como o{" "}
-              <span className="text-gradient-honey">amor de família</span>
+              Doce como o <span className="text-gradient-honey">amor de família</span>
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-              A Mel Duas Abelhas nasceu do trabalho de uma família apaixonada pela apicultura.
-              Em Riachão do Jacuípe, no interior da Bahia, cuidamos de abelhas italianas com dedicação
+              A Mel Duas Abelhas nasceu do trabalho de uma família apaixonada pela apicultura. Em
+              Riachão do Jacuípe, no interior da Bahia, cuidamos de abelhas italianas com dedicação
               e respeito à natureza.
             </p>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
               Nosso compromisso é oferecer um mel verdadeiro: puro, sem mistura e com a qualidade
-              que só quem acompanha cada etapa da produção pode garantir. Da colmeia à sua mesa,
-              com todo o cuidado que você e sua família merecem.
+              que só quem acompanha cada etapa da produção pode garantir. Da colmeia à sua mesa, com
+              todo o cuidado que você e sua família merecem.
             </p>
             <div className="mt-8 rounded-2xl border border-honey/15 bg-card p-6">
               <p className="font-heading text-xl font-semibold italic text-honey-dark">

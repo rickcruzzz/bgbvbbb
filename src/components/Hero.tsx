@@ -1,6 +1,8 @@
+import type { MouseEvent } from "react";
 import { motion } from "framer-motion";
 import { Leaf, ShieldCheck, Heart, Truck } from "lucide-react";
 import produtoGarrafa from "@/assets/produto-garrafa.png";
+import { scrollToElementById } from "@/lib/anchor-scroll";
 import { WHATSAPP_URL } from "./WhatsAppButton";
 
 const badges = [
@@ -9,6 +11,11 @@ const badges = [
   { icon: Heart, text: "Produção familiar" },
   { icon: Truck, text: "Direto do produtor" },
 ];
+
+function handleProdutosClick(e: MouseEvent<HTMLAnchorElement>) {
+  e.preventDefault();
+  scrollToElementById("produtos");
+}
 
 export function Hero() {
   return (
@@ -37,13 +44,13 @@ export function Hero() {
           </motion.span>
 
           <h1 className="font-heading text-4xl font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
-            Mel puro de verdade{" "}
-            <span className="text-gradient-honey">para a sua mesa</span>{" "}
+            Mel puro de verdade <span className="text-gradient-honey">para a sua mesa</span>{" "}
             <span className="text-white">em Salvador</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/60 md:mx-0 md:text-lg">
-            Mel Duas Abelhas: mel 100% natural, direto do produtor em Riachão do Jacuípe, com entregas em Salvador e RMS.
+            Mel Duas Abelhas: mel 100% natural, direto do produtor em Riachão do Jacuípe, com
+            entregas em Salvador e RMS.
           </p>
 
           {/* Badges */}
@@ -72,7 +79,8 @@ export function Hero() {
             </a>
             <a
               href="#produtos"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-4 text-base font-semibold text-white/90 backdrop-blur-sm transition-all duration-300 hover:border-honey/40 hover:bg-white/10"
+              onClick={handleProdutosClick}
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-4 text-base font-semibold text-white/90 backdrop-blur-sm transition-[border-color,background-color] duration-300 hover:border-honey/40 hover:bg-white/10"
             >
               Ver opções de mel
             </a>
@@ -113,7 +121,11 @@ export function Hero() {
             <img
               src={produtoGarrafa}
               alt="Garrafa de Mel Duas Abelhas 500ml - Mel Puro 100% Natural"
-              className="relative z-10 h-[380px] w-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)] sm:h-[440px] md:h-[520px] lg:h-[580px]"
+              width={580}
+              height={580}
+              decoding="async"
+              fetchPriority="high"
+              className="relative z-10 h-[380px] w-auto max-w-[min(100%,580px)] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.4)] sm:h-[440px] md:h-[520px] lg:h-[580px]"
             />
           </div>
         </motion.div>

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { inViewOnce } from "@/lib/motion-viewport";
 import { WHATSAPP_URL } from "./WhatsAppButton";
 import produtoGarrafa from "@/assets/produto-garrafa.png";
 
@@ -17,12 +18,17 @@ export function FinalCTA() {
             className="hidden flex-shrink-0 lg:block"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={inViewOnce}
             transition={{ duration: 0.7 }}
           >
             <img
               src={produtoGarrafa}
               alt="Mel Duas Abelhas"
+              width={400}
+              height={360}
+              loading="lazy"
+              decoding="async"
+              fetchPriority="low"
               className="h-[360px] w-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
             />
           </motion.div>
@@ -32,7 +38,7 @@ export function FinalCTA() {
             className="flex-1 text-center lg:text-left"
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={inViewOnce}
             transition={{ duration: 0.7 }}
           >
             <h2 className="font-heading text-3xl font-bold leading-tight text-white md:text-4xl lg:text-5xl">
@@ -40,14 +46,20 @@ export function FinalCTA() {
               <span className="text-gradient-honey">entregue na sua porta</span>
             </h2>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/60 md:text-lg lg:max-w-none">
-              Direto de Riachão do Jacuípe para Salvador e RMS.
-              100% natural, sem mistura, produção familiar. Peça agora e prove a diferença.
+              Direto de Riachão do Jacuípe para Salvador e RMS. 100% natural, sem mistura, produção
+              familiar. Peça agora e prove a diferença.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
-              <span className="rounded-full border border-honey/20 bg-honey/10 px-4 py-2 text-xs font-semibold text-honey-gold">100% Natural</span>
-              <span className="rounded-full border border-honey/20 bg-honey/10 px-4 py-2 text-xs font-semibold text-honey-gold">Sem mistura</span>
-              <span className="rounded-full border border-honey/20 bg-honey/10 px-4 py-2 text-xs font-semibold text-honey-gold">Produção familiar</span>
+              <span className="rounded-full border border-honey/20 bg-honey/10 px-4 py-2 text-xs font-semibold text-honey-gold">
+                100% Natural
+              </span>
+              <span className="rounded-full border border-honey/20 bg-honey/10 px-4 py-2 text-xs font-semibold text-honey-gold">
+                Sem mistura
+              </span>
+              <span className="rounded-full border border-honey/20 bg-honey/10 px-4 py-2 text-xs font-semibold text-honey-gold">
+                Produção familiar
+              </span>
             </div>
 
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:items-start">
@@ -60,9 +72,7 @@ export function FinalCTA() {
                 🍯 Pedir meu mel agora
               </a>
             </div>
-            <p className="mt-4 text-sm text-white/40">
-              Atendimento rápido e direto pelo WhatsApp
-            </p>
+            <p className="mt-4 text-sm text-white/40">Atendimento rápido e direto pelo WhatsApp</p>
           </motion.div>
         </div>
       </div>

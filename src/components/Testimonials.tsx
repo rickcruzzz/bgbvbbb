@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { inViewOnce } from "@/lib/motion-viewport";
 import { Star, Quote } from "lucide-react";
 
 const testimonials = [
@@ -28,15 +29,14 @@ export function Testimonials() {
           className="mb-16 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={inViewOnce}
           transition={{ duration: 0.5 }}
         >
           <span className="mb-4 inline-block text-xs font-bold uppercase tracking-[0.2em] text-honey-dark">
             Depoimentos
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
-            O que dizem{" "}
-            <span className="text-gradient-honey">nossos clientes</span>
+            O que dizem <span className="text-gradient-honey">nossos clientes</span>
           </h2>
         </motion.div>
 
@@ -47,7 +47,7 @@ export function Testimonials() {
               className="relative overflow-hidden rounded-2xl border border-honey/10 bg-card p-8 shadow-card-premium"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={inViewOnce}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
               <Quote className="absolute top-6 right-6 h-10 w-10 text-honey/10" />
